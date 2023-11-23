@@ -14,7 +14,7 @@ namespace MVVM_Implementación_AESM.VistaModelo.VMpokemon
     public class VMlistapokemon : BaseViewModel
     {
         #region VARIABLES
-        string _Texto;
+        
         ObservableCollection<Mpokemon> _Listapokemon;
         #endregion
         #region CONTRUCTOR

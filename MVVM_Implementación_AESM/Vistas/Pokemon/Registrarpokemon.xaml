@@ -6,7 +6,7 @@
     <Grid RowDefinitions="80,*"
           BackgroundColor="#1d1d1d">
         <StackLayout Orientation="Horizontal" Margin="15">
-            <Image Source="flechaatras.png" WidthRequest="50">
+            <Image Source="backwhite.png" WidthRequest="50">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Volvercommand}"/>
                 </Image.GestureRecognizers>

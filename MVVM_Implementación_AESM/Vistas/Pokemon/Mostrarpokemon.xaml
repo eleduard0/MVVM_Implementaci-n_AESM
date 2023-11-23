@@ -4,17 +4,60 @@
              x:Class="MVVM_Implementación_AESM.Vistas.Pokemon.Mostrarpokemon"
              NavigationPage.HasNavigationBar="False">
     <Grid RowDefinitions="80,*"
-      BackgroundColor="#EAEDEC">
-        <StackLayout Orientation="Horizontal" Margin="15">
-            <Image Source="flechaatras.png" WidthRequest="50">
+        BackgroundColor="#dc0a2d">
+        
+            <Image Source="back.png" WidthRequest="50" HorizontalOptions="Start" Margin="10,0,0,0">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding Volvercommand}"/>
                 </Image.GestureRecognizers>
             </Image>
             <Image Source="https://i.ibb.co/qnF5MjL/International-Pok-mon-logo-svg.png" 
-               HorizontalOptions="CenterAndExpand"/>
-            <Image Source="https://i.ibb.co/GxPng5d/pokebola.png" />
-        </StackLayout>
+               HorizontalOptions="CenterAndExpand" WidthRequest="150"/>
+            <Image Source="https://i.ibb.co/GxPng5d/pokebola.png" HorizontalOptions="End" WidthRequest="50" Margin="0,0,10,0" />
+        
+        <CollectionView BackgroundColor="#EAEDEC"
+                        Grid.Row="1"
+                        
+                        Margin="0,0,0,0"
+                        >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="100,*"
+                        Margin="0,0,0,0">
+                        <Frame Grid.Row="1" WidthRequest="250"
+                            HorizontalOptions="Center"
+                            CornerRadius="15"
+                            Margin="10,-60,5,0"
+                            BackgroundColor="CadetBlue"
+                               HasShadow="False">
+                            
+                            <StackLayout
+                                Margin="0,62,0,0">
+                                <Label Text="000" TextColor="Gray"/>
+                                <Label Text="nombre"
+                                    TextColor="Black"
+                                    CharacterSpacing="1"
+                                    FontSize="17"
+                                    Margin="0,0,0,5"/>
+                                <Button Text="poder"
+                                    TextColor="Black"
+                                    CornerRadius="30"
+                                    HorizontalOptions="Start"
+                                    TextTransform="None"
+                                    HeightRequest="40"
+                                    BackgroundColor="Blue"/>
+                            </StackLayout>
+                        </Frame>
+                        <Image Source=""
+                                Grid.RowSpan="2"
+                                HeightRequest="130"
+                                VerticalOptions="StartAndExpand"
+                                Margin="0,5,0,0"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
         <StackLayout Grid.Row="1" Margin="10">
         <Button Text="Eliminar" BackgroundColor="Red"/>
         <Button Text="Editar" BackgroundColor="CadetBlue"/>
