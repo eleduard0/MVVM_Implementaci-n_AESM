@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVM_Implementación_AESM.Vistas.Pokemon.Listapokemon"
+             NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions="80,*"
+          BackgroundColor="#dc0a2d">
+        <Image Source="https://i.ibb.co/8XNYYqk/Pok-dex-logo.png" 
+       HorizontalOptions="CenterAndExpand"
+               WidthRequest="200"/>
+        <CollectionView BackgroundColor="#EAEDEC"
+                        Grid.Row="1"
+                        ItemsSource="{Binding Listapokemon}"
+                        Margin="0,0,0,0"
+                        x:Name="mostrarpokemon">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="2"
+                                 HorizontalItemSpacing="3"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid RowDefinitions="100,*"
+                        Margin="0,0,0,0">
+                        <Frame Grid.Row="1" WidthRequest="250"
+                            HorizontalOptions="Center"
+                            CornerRadius="15"
+                            Margin="10,-60,5,0"
+                            BackgroundColor="{Binding Colorfondo}"
+                               HasShadow="False">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding Source={x:Reference Name=mostrarpokemon}, Path=BindingContext.Mostrardetallespokemoncommand}"
+                                                      CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+                            <StackLayout
+                                Margin="0,62,0,0">
+                                <Label Text="{Binding NroOrden}" TextColor="Gray"/>
+                                <Label Text="{Binding Nombre}"
+                                    TextColor="Black"
+                                    CharacterSpacing="1"
+                                    FontSize="17"
+                                    Margin="0,0,0,5"/>
+                                <Button Text="{Binding Poder}"
+                                    TextColor="Black"
+                                    CornerRadius="30"
+                                    HorizontalOptions="Start"
+                                    TextTransform="None"
+                                    HeightRequest="40"
+                                    BackgroundColor="{Binding Colorpoder}"/>
+                            </StackLayout>
+                        </Frame>
+                            <Image Source="{Binding Icono}"
+                                Grid.RowSpan="2"
+                                HeightRequest="130"
+                                VerticalOptions="StartAndExpand"
+                                Margin="0,5,0,0"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            
+        </CollectionView>
+        <Button Text="+"
+                Grid.Row="1"
+                HeightRequest="100"
+                WidthRequest="100"
+                VerticalOptions="End"
+                HorizontalOptions="End"
+                CornerRadius="50"
+                Margin="15"
+                FontSize="50"
+                FontAttributes="Bold"
+                BackgroundColor="#FFD755"
+                Command="{Binding Iraregistrocommand}"/>
+
+    </Grid>
+</ContentPage>
