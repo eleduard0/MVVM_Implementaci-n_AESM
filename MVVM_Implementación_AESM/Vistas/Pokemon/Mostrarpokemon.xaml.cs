@@ -1,4 +1,5 @@
-﻿using MVVM_Implementación_AESM.VistaModelo.VMpokemon;
+﻿using MVVM_Implementación_AESM.Modelo;
+using MVVM_Implementación_AESM.VistaModelo.VMpokemon;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,10 @@ namespace MVVM_Implementación_AESM.Vistas.Pokemon
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Mostrarpokemon : ContentPage
     {
-        public Mostrarpokemon()
+        public Mostrarpokemon(Mpokemon mpokemon)
         {
             InitializeComponent();
-            BindingContext = new VMmostrarpokemon(Navigation);
+            BindingContext = new VMmostrarpokemon(Navigation, mpokemon);
         }
     }
 }

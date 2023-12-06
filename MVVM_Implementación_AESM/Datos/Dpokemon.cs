@@ -49,5 +49,19 @@ namespace MVVM_Implementación_AESM.Datos
                  .AsObservableCollection());
             return data;
         }
+        public async Task EliminarPokemon(Mpokemon nroOrden)
+        {
+            await Cconexion.firebase
+                .Child("Pokemon")
+                .Child(nroOrden.NroOrden)
+                .DeleteAsync();
+        }
+        public async Task EditarPokemon(Mpokemon pokemon)
+        {
+            await Cconexion.firebase
+                .Child("Pokemon")
+                .Child(pokemon.Idpokemon)
+                .PutAsync(pokemon);
+        }
     }
 }

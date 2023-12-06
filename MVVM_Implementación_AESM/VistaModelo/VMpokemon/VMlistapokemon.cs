@@ -34,9 +34,9 @@ namespace MVVM_Implementación_AESM.VistaModelo.VMpokemon
         }
         #endregion
         #region PROCESOS
-        public async Task Mostrardetallespokemon()
+        public async Task Mostrardetallespokemon(Mpokemon mpokemon)
         {
-            await Navigation.PushAsync(new Mostrarpokemon());
+            await Navigation.PushAsync(new Mostrarpokemon(mpokemon));
         }
         public async Task Mostrarpokemon()
         {
@@ -54,7 +54,7 @@ namespace MVVM_Implementación_AESM.VistaModelo.VMpokemon
         #endregion
         #region COMANDOS
         public ICommand Iraregistrocommand => new Command(async () => await Iraregistro());
-        public ICommand Mostrardetallespokemoncommand => new Command(async () => await Mostrardetallespokemon());
+        public ICommand Mostrardetallespokemoncommand => new Command<Mpokemon>(async (p) => await Mostrardetallespokemon(p));
         public ICommand ProcesoSimpcommand => new Command(ProcesoSimple);
         #endregion
     }
