@@ -12,9 +12,12 @@ namespace MVVM_Implementación_AESM.VistaModelo.VMpokemon
 {
     internal class VMmostrarpokemon : BaseViewModel
     {
+        Dpokemon dpokemon = new Dpokemon();
         #region VARIABLES
         public Mpokemon recibirParametros { get; set; }
         public Mpokemon _mpokemon;
+        private string _NroOrden;
+
         #endregion
         #region CONTRUCTOR
         public VMmostrarpokemon(INavigation navigation, Mpokemon traerParametros)
@@ -24,6 +27,11 @@ namespace MVVM_Implementación_AESM.VistaModelo.VMpokemon
         }
         #endregion
         #region OBJETOS
+        public string NroOrden
+        {
+            get { return recibirParametros.NroOrden ; }
+            set { _ = recibirParametros.NroOrden;  }
+        }
         public Mpokemon mpokemon
         {
             get { return _mpokemon; }
@@ -40,11 +48,11 @@ namespace MVVM_Implementación_AESM.VistaModelo.VMpokemon
         {
             await Navigation.PopAsync();
         }
-        /*public async Task EliminarPokemon()
+        public async Task EliminarPokemon()
         {
-            var function = new Dpokemon();
-            mpokemon = function.EliminarPokemon(recibirParametros.);
-        }*/
+            await dpokemon.EliminarPokemon(NroOrden);
+            await App.Current.MainPage.Navigation.PushAsync(new Listapokemon());
+        }
         public void ProcesoSimple()
         {
 
@@ -53,7 +61,9 @@ namespace MVVM_Implementación_AESM.VistaModelo.VMpokemon
         #region COMANDOS
         
         public ICommand Volvercommand => new Command(async () => await Volver());
+        public ICommand DeleteCommand => new Command(async () => await EliminarPokemon());
         public ICommand ProcesoSimpcommand => new Command(ProcesoSimple);
+        /*public ICommand DeleteCommand { get { return new RelayCommand(EliminarPokemon); } }*/
         #endregion
     }
 }

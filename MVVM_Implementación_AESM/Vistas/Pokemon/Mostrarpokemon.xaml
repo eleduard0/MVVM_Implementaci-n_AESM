@@ -49,8 +49,8 @@
                                 VerticalOptions="StartAndExpand"
                                 Margin="0,5,0,0"/>
             </Grid>
-            <Button Text="Eliminar" BackgroundColor="Red" FontAttributes="Bold" CornerRadius="15" Margin="28,100,28,5"/>
-            <Button Text="Editar" BackgroundColor="AliceBlue"  TextColor="Red" CornerRadius="15"  FontAttributes="Bold" Margin="28,5,28,5"/>
+            <Button Text="Editar" BackgroundColor="AliceBlue"  TextColor="Red" CornerRadius="15"  FontAttributes="Bold" Margin="28,80,28,5"/>
+            <Button Text="Eliminar" Command="{Binding DeleteCommand}" TextColor="AliceBlue" BackgroundColor="Red" FontAttributes="Bold" CornerRadius="15" Margin="28,5,28,5"/>
             
         </StackLayout>
 
