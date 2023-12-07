@@ -41,7 +41,7 @@
                        FontAttributes="Bold"
                        TextColor="#ffeb72"
                        PlaceholderColor="White"
-                       TextTransform="Lowercase"v
+                       TextTransform="Lowercase"
                        HorizontalOptions="StartAndExpand"
                        FontSize="15"
                        Text="{Binding Txtcolorfondo}"/>
